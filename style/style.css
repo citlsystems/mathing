@@ -1,0 +1,819 @@
+#linearEquationBtn,#quadraticExpressionBtn,#hideBtn {
+	display:none;
+}
+
+* {
+	margin: 0;
+}/*
+html, body {
+	height: 100%;
+}
+*/
+
+html {
+	font-size: 62.5%;
+	line-height: 1.6;
+	text-align: center;
+	background: url(../images/graph-paper1.gif) repeat 0 0;
+
+}
+body {
+	font-size: 1.8em;
+	line-height:1.8em;
+	font-family: Helvetica, Arial, sans-serif;
+	color: #545454;
+	margin: 0 auto;
+	background-color: #transparent;
+	width: 93.75%;		/* 960px / 1024px */
+}
+
+
+#top .topmenu {
+/*	padding: 0.5em 1em;
+*/	min-height: 2em;
+text-align:right;
+}
+
+
+#footer {
+	height: 1.2em;
+	background-color: #727272;
+	font-size: 0.85em;
+	color: #fff;
+	line-height: 1.2em;
+	
+}
+
+#top .topmenu ul {
+	border-bottom: 1px solid #6a6a6a;
+	border-top: 1px solid #6a6a6a;
+	display: inline-block !important;
+	text-align: center;
+	width: 100%;
+	background-color:#e6e6e6; 
+	width: 50%;
+	-webkit-padding-start: 0px;
+	margin-top: 1.5em;
+}
+
+#top .topmenu ul li{
+	list-style-type: none;
+	display: inline-block;
+	padding: 0 5%;
+	position: relative;
+	font-size: 20px;
+	margin: 14px 0 16px;
+	font-family: 'Fjalla One', sans-serif;
+}
+
+#top .topmenu ul li,
+#top .topmenu ul li a{
+	color: #6a6a6a;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-family: 'Fjalla One', sans-serif;
+}
+
+#top .topmenu ul li a:link {
+	color: #6a6a6a;
+}
+
+.topbar {
+	display: block;
+	padding: 0 0 1em 0;
+	border-bottom: 3px double #727272;
+	color: #000;
+	min-height: 50px;	
+	text-align: center;
+}
+
+.topbar .questionTypeForm {
+	margin: 0;
+}
+.topbar .question,
+.topbar .menuContainer {
+	margin: 0 0 1em; 
+}
+
+h1.site-title {
+	font-family: 'Fjalla One', sans-serif;
+	font-size: 3.3em;
+	margin:0.3em 5% 0.2em -2px;
+	letter-spacing: -1.5px;
+	display:inline-block;
+	line-height: 1.2em;
+	text-align: left;
+}
+
+.site-title, .site-title:visited {
+	color: #BB29BB; 
+	letter-spacing: -1.5px;
+	float: left;
+}
+.site-title span {
+	color: #727272;
+	display:inline-block;
+	vertical-align: 5px;
+	transform:scale(1,1.24); /* W4C */
+	-webkit-transform:scale(1,1.24); /* Safari and Chrome */
+	-moz-transform:scale(1,1.24); /* Firefox */
+	-ms-transform:scale(1,1.24); /* IE 9 */
+	-o-transform:scale(1,1.24); /* Opera */
+}
+
+h1.site-title small {
+	display: block;
+	font-size: 0.5em;
+	font-weight: lighter;
+	color: #999;
+	margin-top: -1em;
+	margin-left: 1px;
+	text-transform: uppercase;
+	text-align:left;
+}
+
+h2 {
+	font-weight: normal;
+	font-size: 0.9em;
+	line-height: 1em;
+	padding-bottom: 0.2em;
+}
+
+form.questionTypeForm {
+	display: inline;
+	float: left;
+	margin:0;
+	padding:0;
+	line-height: 0;
+}
+
+#solveQuestType, #p1 {
+	font-size: 1.4em;
+	display: block;
+	text-align: left;
+	display: inline-block;
+	margin-top: 20px;
+}
+
+#solveQuestType {
+	color: #808080;
+	text-transform: uppercase;
+	font-size: 1em;
+	font-weight: bold;
+	letter-spacing: 1px;
+	margin-right: 1em;
+	vertical-align: 7px;
+}
+
+.question {
+	display: inline;
+	float: left;
+	margin:0;
+	padding:0;
+	line-height: 0;
+}
+/*
+#solveQuestType, #p1 {
+	padding: 1em;
+	background-color: #ffffef;
+	}*/
+
+	#menuContainer {
+		margin:0;
+		padding:0;
+		line-height: 0;
+	}
+
+	select#questionFeed {
+		font-size: 1em;
+	}
+	input#currentQuestion, input#questionTotal {
+		font-size: 0.8em;
+		border: none;
+		background-color: transparent;
+	}
+
+	#questBtnsDiv{
+		margin:0 0.5em;
+		float: right;
+	}
+
+	p.video-link {
+		text-align: left;
+		font-size: 0.79em;
+		text-transform: uppercase;
+		font-family: 'Fjalla One', sans-serif;
+	}
+	p.video-link a{
+		text-decoration: none;
+		color: #727272;
+
+	}
+
+	.btn {
+		text-decoration:none;
+		color:#fff;
+		font-size:12px;
+		font-weight:bold;
+		padding:0 15px;
+		line-height:32px;
+		height: auto;
+		display:inline-block;
+		text-align:center;
+		background-color:#545454;
+		cursor: pointer;
+
+	}
+
+	.button-wrap .btn {
+		font-size: 0.95em;
+		cursor: pointer;
+	}
+
+
+	.button-wrap > .btn.round:not(:first-child):not(:last-child),
+	#linearEquationBtn > .btn.round:not(:first-child):not(:last-child),
+	#quadraticExpressionBtn > .btn.round:not(:first-child):not(:last-child){
+		-webkit-border-radius: 0;
+		-moz-border-radius: 0;
+		border-radius: 0;
+	}
+
+	.button-wrap > .btn.round:first-child,
+	#linearEquationBtn > .btn.round:first-child,
+	#quadraticExpressionBtn > .btn.round:first-child{
+		-webkit-border-top-right-radius: 0;
+		-webkit-border-bottom-right-radius: 0;
+		-moz-border-radius-topright: 0;
+		-moz-border-radius-bottomright: 0;
+		border-top-right-radius: 0;
+		border-bottom-right-radius: 0;
+	}
+
+	.button-wrap > .btn.round:last-child,
+	#linearEquationBtn > .btn.round:last-child,
+	#quadraticExpressionBtn > .btn.round:last-child{
+		-webkit-border-top-left-radius: 0;
+		-webkit-border-bottom-left-radius: 0;
+		-moz-border-radius-topleft: 0;
+		-moz-border-radius-bottomleft: 0;
+		border-top-left-radius: 0;
+		border-bottom-left-radius: 0;
+	}
+
+	.button-wrap .btn + .btn,
+	#linearEquationBtn .btn + .btn,
+	#quadraticExpressionBtn .btn + .btn{
+		border-left: 1px solid #545454;
+		margin-left:-5px;
+	}
+
+	.btn.round{
+		-webkit-border-radius: 3px;
+		-moz-border-radius: 3px;
+		border-radius: 3px;
+		border-style: none;
+	}
+
+	.btn:hover{
+		background-color:#545454;
+	}
+
+
+	#outPutContainer {
+		float: left;
+		width: 100%;
+		text-align: center;
+		margin: 10px 0;
+		background-color: #fff;
+	}
+
+	#MathOutput{
+		height: auto;
+		width:34%;
+		position: relative;
+		float: left;
+		min-height:120px;
+		color: #000;
+		padding: 10px 0;
+		border-right: 1px solid #eee;
+	}
+
+	#p2 {
+		height: auto;
+		width:65%;
+		margin: 0;
+		position: relative;
+		float: left;
+		min-height:120px;
+		padding: 10px 0;
+		color: #000;
+		wrap: normal;
+
+	}
+
+	#feedBackOutput {
+	/*height: auto;
+	width:50%;*/
+	margin: 0;
+	position: relative;
+	border: 1px solid green;
+	float: left;
+
+	min-width:214px;
+	min-height:120px;
+	width:auto;
+	height:auto;
+	margin:10px 19px 10px 0;
+
+	padding: 10px 0;
+	background:#FFF;
+
+}
+
+
+#bottom {
+	bottom: 0;
+	right: 0;
+	left: 0;
+	background-color: #fff;
+}
+
+#calcContainer {
+	position: relative;
+
+}
+
+
+.calculator {
+	position: relative;
+
+
+	display:block;
+	z-index:5;
+
+
+	margin: 0px auto;
+
+}
+
+/*	
+.calculator p {
+
+display:inline-block;
+font-size:1em;
+color:#666;
+width: 203px;
+margin: 0px auto;
+padding: 0px 0px 6px 0px;
+}*/
+
+
+
+.column {
+	float: left;
+	width: 62px;
+	text-align: center;
+
+}
+
+.column-lg {
+	float:left;
+	width: 100%;
+}
+
+.row {
+	width:100%;
+	float:left;
+	text-align: center;
+
+}
+
+.basic div:nth-child(-n+5) {
+	background-color: #e4f6fe;   
+}
+
+#exponentPanel .column-lg .row div {
+	background-color: #fdfeff;
+}
+
+#squareRootPanel .column-lg .row div {
+	background-color: #fdfeff;
+}
+
+#squareRootFractionPanel .column-lg .row div {
+	background-color: #fdfeff;
+}
+
+.button-wrap {
+	/*background-color: #727272;*/
+	text-align:center;
+	margin: 5px 0;
+}
+
+/*
+.button-wrap button, .button-wrap .button{
+	padding: 10px 24px;
+
+	}*/
+
+	/* Calculator keys */
+	.row div {
+		border:1px solid #666;
+
+		float: left;
+		cursor: pointer;
+		background-color: transparent;
+		margin: 2px;
+		text-align: center;
+		vertical-align: middle;
+
+		user-select: none;
+		padding: 20px 0 0;
+		border: 1px solid #eee;
+
+		height: 27px;
+		width: 62px;
+	}
+
+	.column-lg .row div{
+		background-color: #eee;
+	}
+
+
+	.path{
+
+		display: none;
+/*
+	background-color: #fff;
+	font-family:'Open Sans', sans-serif;
+	font-size:0.6em;
+	color:#222;
+	height:50px;
+	
+	padding-left:10px;
+	padding-bottom:5px;
+	
+	*/
+	
+}/*
+img{
+	
+	float:left;
+}
+*/
+
+
+
+/* Calculator Buttons */
+#newLine{
+	cursor: pointer;
+	
+	/* prevent selection of text inside keys */
+	user-select: none;
+}
+#reset{
+	cursor: pointer;
+	
+	/* prevent selection of text inside keys */
+	user-select: none;
+}
+
+
+
+
+/* End Main Panel ***********************************/
+
+
+
+/* Typesetting Code Blocks - MathOutput,feedBackOutput,showRandonmQuestion*/
+
+
+
+
+/* Container aligning - MathOutput and feedBackOutput*/
+
+
+#feedBackTextField{
+	clear: both;
+	min-width: 400px;
+	min-height: 16px;
+/*width: 100%;
+*/text-align: left;
+height: auto;
+margin-bottom: 7px;
+padding: 5px 10px;
+font-size: .7em;
+color: #666;
+background-color: #ffffef;
+/* prevent selection of text inside keys */
+user-select: none;
+}
+
+
+#showRandonmQuestion {
+	float: left;
+	min-width:224px;
+	min-height:20px;
+	width:auto;
+	height:auto;
+	margin-left:0px;
+	margin-top:0px;
+	font-size:20px;
+
+	padding: 4px 4px 4px 4px;
+	background:#FFF;
+	border-radius: 3px;
+	/*box-shadow: 0px 4px #696, 0px 10px 15px rgba(0, 0, 0, 0.2);*/
+}
+
+
+/* End Typesetting Code Blocks - MathOutput,feedBackOutput,showRandonmQuestion*/
+
+
+
+
+/* fraction Builder Panel Css ---inherits some of the above css used in the prime equation builder */
+/*	#fractionPanel {
+display:none;
+position:absolute;
+left:0px;
+top:0px;
+z-index:55;
+}
+*/
+#fractionOutput, 
+#squareRootOutput, 
+#exponentOutput, 
+#fractionFractionOutput, 
+#fractionSquareRootOutput, 
+#fractionFractionSquareRootOutput, 
+#fractionSquareRootFractionOutput, 
+#fractionSquareRootExponentOutput, 
+#fractionExponentOutput, 
+#fractionFractionExponentOutput, 
+#squareRootExponentOutput, 
+#squareRootFractionOutput {
+	padding: 10px;
+	font-size:1.1em;
+	color: #000;
+	border: 1px solid #eee;
+	display: inline-block;
+	margin-top: 20px;
+	background-color: #fff;
+	min-height: 15px;
+	min-width: 300px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+
+
+#squareRootFractionPanel,
+#squareRootExponentPanel,
+#squareRootExponentFractionPanel,
+#squareRootFractionExponentPanel,
+#fractionSquareRootPanel, 
+#fractionSquareRootFractionPanel, 
+#fractionSquareRootExponentPanel,
+#fractionExponentPanel, 
+#fractionFractionPanel, 
+#fractionFractionExponentPanel, 
+#fractionFractionSquareRootPanel, 
+#fractionFractionExponentFractionPanel,
+#fractionPanel, 
+#squareRootPanel, 
+#exponentPanel{
+	display:none;
+	position:absolute;
+	left:0px;
+	top:0px;
+	z-index:55;
+	background-color:#e6e6e6;
+	width:100%;
+	border-bottom: 3px double #545454;
+	min-height: 200px;
+}
+
+#squareRootFractionPanel .row div,
+#squareRootExponentPanel .row div,
+#squareRootExponentFractionPanel .row div,
+#squareRootFractionExponentPanel .row div,
+#fractionSquareRootPanel .row div, 
+#fractionSquareRootFractionPanel .row div, 
+#fractionSquareRootExponentPanel .row div,
+#fractionExponentPanel .row div, 
+#fractionFractionPanel .row div, 
+#fractionFractionExponentPanel .row div, 
+#fractionFractionSquareRootPanel .row div, 
+#fractionFractionExponentFractionPanel .row div,
+#fractionPanel .row div, 
+#squareRootPanel .row div, 
+#exponentPanel .row div{
+	background-color:#fff;
+	border-color: #fff
+}
+/*
+#squareRootFractionPanel .button-wrap,
+#squareRootExponentPanel .button-wrap,
+#squareRootExponentFractionPanel .button-wrap,
+#squareRootFractionExponentPanel .button-wrap,
+#fractionSquareRootPanel .button-wrap, 
+#fractionSquareRootFractionPanel .button-wrap, 
+#fractionSquareRootExponentPanel .button-wrap,
+#fractionExponentPanel .button-wrap, 
+#fractionFractionPanel .button-wrap, 
+#fractionFractionExponentPanel .button-wrap, 
+#fractionFractionSquareRootPanel .button-wrap, 
+#fractionFractionExponentFractionPanel .button-wrap,
+#fractionPanel .button-wrap, 
+#squareRootPanel .button-wrap, 
+#exponentPanel .button-wrap{
+	background-color:#e6e6e6;
+}
+
+
+#fractionOutput + .button-wrap .btn, 
+#exponentOutput + .button-wrap .btn,  
+#fractionFractionOutput + .button-wrap .btn,  
+#fractionExponentOutput + .button-wrap .btn,  
+#fractionFractionExponentOutput + .button-wrap .btn, 
+#squareRootExponentOutput + .button-wrap .btn, 
+#squareRootFractionOutput  + .button-wrap  .btn{
+ background-color: #a7a7a7;
+ }*/
+
+ /* fraction Panel Buttons */
+
+ #denominatorid, 
+ #fractionSquareRootFractionDenominatorId, 
+ #fractionFractionDenominatorid.denominatorid, 
+ #fractionSquareRootBaseId, 
+ #fractionSquareRootExponentId, 
+ #exponentId, 
+ #numeratorid, 
+ #fractionFractionNumeratorid,
+ #fractionSquareRootFractionNumeratorId, 
+ #fractionFractionNumeratorid.numeratorid,
+ #exponentId,
+ #baseId,
+ #squareRootBaseId,
+ #squareRootExponentId {
+ 	cursor: pointer;
+ 	user-select: none;
+ 	width: 130px;
+
+ 	height: 32px;
+ 	font-size:1em;
+
+ }
+
+
+
+ #newLine {
+ 	cursor: pointer;
+ 	user-select: none;
+ }
+ #insertFraction{
+ 	cursor: pointer;
+ 	user-select: none;
+ }
+ #resetFraction{
+ 	cursor: pointer;
+ 	user-select: none;
+ }
+ #cancelFraction{
+ 	cursor: pointer;
+ 	/* prevent selection of text inside keys */
+ 	user-select: none;
+ }
+ /* End fraction Panel Buttons */
+
+ /* End fraction Builder Panel Css ******************************************************************/
+
+
+
+
+
+
+ /* squareRoot Builder Panel Css ---inherits some of the above css used in the prime equation builder */
+ #squareRootPanel {
+ 	display:none;
+ 	position:absolute;
+ 	left:0px;
+ 	top:0px;
+ 	z-index:65;
+ }
+
+ /* SquareRoot Panel Buttons */
+ #insertSquareRoot{
+ 	cursor: pointer;	
+ 	user-select: none;
+ }
+ #resetSquareRoot{
+ 	cursor: pointer;
+ 	user-select: none;
+ }
+ #cancelSquareRoot{
+ 	cursor: pointer;
+ 	user-select: none;
+ }
+
+
+ /* Exponent Builder Panel Css ---inherits some of the above css used in the prime equation builder */
+ #exponentPanel {
+ 	display:none;
+ 	position:absolute;
+ 	left:0px;
+ 	top:0px;
+ 	z-index:65;
+ }
+ /* Exponents Panel Buttons */
+ #baseId {
+ 	cursor: pointer;
+ 	/* prevent selection of text inside keys */
+ 	user-select: none;
+ }
+ #exponentId {
+ 	cursor: pointer;
+ 	/* prevent selection of text inside keys */
+ 	user-select: none;
+
+ }
+ #insertExponent{
+ 	cursor: pointer;
+ 	user-select: none;
+ }
+ #resetExponent{
+ 	cursor: pointer;
+ 	user-select: none;
+ }
+ #cancelExponent{
+ 	cursor: pointer;
+ 	user-select: none;
+ }
+ #equal {
+ 	background-color: #ccc;
+ }
+ /* End Expnent Panel Buttons */
+
+ /* End Exponent Builder Panel Css ********/
+/*
+#bottom button,
+#bottom .button,
+[type=button],
+[type=submit] {
+	background-color:#B3E5FC;
+	text-align:center;
+	color:#fff;
+	display:inline-block;
+	margin:2px;
+	padding:10px;
+	position:relative;
+	border:none;
+	cursor:pointer;
+	border-radius:3px;
+	white-space:wrap;
+	text-overflow:ellipsis;
+	min-height: 0;
+	font-family:'Open Sans', sans-serif;
+	line-height:20px;
+	font-size:0.8em;
+	-webkit-appearance:none;
+	-webkit-font-smoothing:antialiased;
+	
+}
+
+#bottom button:hover,
+#bottom .button:hover,
+#bottom .button.active,
+[type=button]:hover,
+[type=submit]:hover {
+	color:#fff;
+}
+
+#bottom button:focus,
+#bottom .button:focus,
+[type=submit]:focus,
+[type=button]:focus {
+	-webkit-box-shadow: inset 0 0 0 3px rgba(0,0,0,0.1);
+	box-shadow: inset 0 0 0 3px rgba(0,0,0,0.1);
+	
+}
+
+#bottom button:hover,
+#bottom .button:hover,
+#bottom .button.active,
+[type=submit]:hover,
+[type=button]:hover {
+	background-color:#03A9F4;
+	
+}
+*/
+.column .button,.column button {
+	width:100%;
+}
+
+.clear {
+	clear:both;
+}
